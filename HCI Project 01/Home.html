@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SLIIT CITY UNI</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #ffffff;
+      }
+
+      header img {
+        width: 60px;
+        height: 60px;
+      }
+
+      header nav {
+        display: flex;
+        gap: 50px;
+      }
+
+      header nav a {
+        text-decoration: none;
+        color: #000000;
+      }
+
+      .iconn {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+      }
+
+      .iconn img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+
+      .hero {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+      }
+
+      .hero img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .h2 {
+        text-align: center;
+        justify-content: center;
+        font-size: 40px;
+      }
+
+      .hero h1 {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(7, 7, 7);
+        font-size: 2.5rem;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .announcements {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        gap: 20px;
+        padding-top: 50px;
+        font-size: 25px;
+      }
+
+      .announcements button {
+        padding: 15px 25px;
+        background-color: #007bff;
+        color: white;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .announcements button:hover {
+        background-color: #0056b3;
+      }
+
+      .categories {
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      #cat {
+        font-size: 35px;
+        padding-bottom: 25px;
+      }
+
+      .categories ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .categories li {
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .categories li ul {
+        display: none; /* Initially hidden */
+        margin-left: 20px;
+      }
+
+      .categories li.open > ul {
+        display: block; /* Show when expanded */
+      }
+
+      footer {
+        display: flex;
+        justify-content:center;
+        gap: 130px;
+        align-items: center;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 10px rgb(255, 255, 255);
+      }
+
+      .footer-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .footer-left img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .footer-left p {
+        max-width: 250px;
+        font-size: 14px;
+        padding-left: 20px;
+        padding-top: 10px;
+      }
+
+      .footer-center {
+        text-align: center;
+      }
+
+      .footer-center h3 {
+        margin-bottom: 10px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .social-icons a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #333;
+      }
+
+      .footer-right {
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        padding-right: 100px;
+      }
+
+      .footer-right a {
+        text-decoration: none;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 15px;
+      }
+
+      .text{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+
+      a {
+    text-decoration: none;  
+    color: #000000;  
+}
+
+      .search-bar {
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        right: 20px;
+        background: white;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgb(255, 254, 254);
+        width: 250px;
+        z-index: 1000;
+      }
+
+      .search-bar input {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      .category-list li {
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fafbfc;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="images.png" alt="SLIIT CITY UNI Logo" />
+      <nav>
+        <a href="#">Home</a>
+        <a href="./Dashboard.html">Dashboard</a>
+        <a href="./MyCourses.html">My Courses</a>
+      </nav>
+      <div class="iconn">
+        <a href="#"><img src="./loginimg.png" /></a>
+        <a href="#"><img src="./bellimg.png" /></a>
+        <div class="ss">
+          <a href="#" id="search-icon"><img src="./searchimg.png" /></a>
+        </div>
+      </div>
+    </header>
+
+    <div id="search-bar" class="search-bar">
+      <input type="text" id="search-input" placeholder="Search..." autofocus />
+    </div>
+
+    <div class="container">
+      <div class="hero">
+        <img src="Heroo.jpg" alt="Welcome Banner" />
+        <h1>Welcome to SLIIT CITY UNI</h1>
+        <h2 class="h2">SLIIT CITY UNI Virtual Learning Environment</h2>
+      </div>
+
+      <div class="announcements">
+        <p>Site Announcements</p>
+        <button><a href="./Ex2.html"> Announcements</a></button>
+      </div>
+
+      <div class="categories">
+        <h2 id="cat">Course categories:</h2>
+        <ul class="category-list">
+          <li tabindex="0">
+            ▶ Foundation Programs - UOB
+            <ul class="sub-list">
+              <li>Semester 1 (11)</li>
+              <li>Semester 2</li>
+            </ul>
+          </li>
+          <li tabindex="0">
+            ▶ Curtin Foundation
+            <ul class="sub-list">
+              <li>Semester 1 (8)</li>
+              <li>Semester 2</li>
+              <li>Curtin Foundation Engineering</li>
+            </ul>
+          </li>
+          <li tabindex="0">
+            ▶ Engineering
+            <ul class="sub-list">
+              <li>Engineering 1st Year</li>
+              <li>Engineering 2nd Year</li>
+              <li>Engineering Final Year - LJMU</li>
+              <li>Bridging Program (5)</li>
+              <li>Engineering Results (1)</li>
+            </ul>
+          </li>
+          <li tabindex="0">
+            ▶ BSc Degree in Information Technology
+            <ul class="sub-list">
+              <li>3rd Year</li>
+              <li>Higher Diploma in IT/BA</li>
+            </ul>
+          </li>
+          <li tabindex="0">
+            ▶ Support Services
+            <ul class="sub-list">
+              <li>Student Affairs (6)</li>
+              <li>Student IT Services (2)</li>
+              <li>Feedbacks (1)</li>
+              <li>Libraries (1)</li>
+              <li>Orientation Programmes</li>
+              <li>Workshops (1)</li>
+            </ul>
+          </li>
+          <li tabindex="0">
+            ▶ Accelerate College Semester (University preparatory course in IT)
+            <ul class="sub-list">
+              <li>Intake 2022 (3)</li>
+            </ul>
+          </li>
+          <li>Extra Curricular Activities (2)</li>
+          <li>PREPARATORY COURSE 2023 (11)</li>
+          <li>PDP Courses 2024 (1)</li>
+          <li>Letter/Certificate/Transcript Request Form (3)</li>
+          <li>Student Rule Book 2022/23 (1)</li>
+        </ul>
+      </div>
+
+      <div id="line"><hr></div>
+
+     <footer>
+      <div class="footer-left">
+        <img src="SCU.jpg" alt="SLIIT CITY UNI Logo" />
+        <p>
+          Sri Lanka Institute of Information Technology attracts brilliant minds,
+          advances knowledge, fosters innovation, and educates future leaders in IT.
+        </p>
+      </div>
+      
+      <div class="footer-center">
+        <h3>Follow Us On:</h3>
+        <div class="social-icons">
+          <a href="#"><img src="facebook.jpg" /></a>
+          <a href="#"><img src="X.jpg" /></a>
+          <a href="#"><img src="in.jpg" /></a>
+          <a href="#"><img src="instergrame.jpg" /></a>
+        </div>
+      </div>
+      
+      <div class="footer-right">
+        <a href="#">Home</a>
+        <a href="#">Dashboard</a>
+        <a href="#">My Courses</a>
+      </div>
+    </footer>
+    <div class="footer-bottom">
+      &copy; 2024 All Rights Reserved. SLIIT CITY UNI.
+    </div>
+    
+    <script>
+      const searchIcon = document.getElementById("search-icon");
+      const searchBar = document.getElementById("search-bar");
+      const searchInput = document.getElementById("search-input");
+      const categoryList = document.querySelectorAll(".category-list li");
+
+      searchIcon.addEventListener("click", function () {
+        searchBar.style.display = "block";
+        searchInput.focus();
+      });
+
+      document.addEventListener("click", function (event) {
+        if (
+          !searchIcon.contains(event.target) &&
+          !searchBar.contains(event.target)
+        ) {
+          searchBar.style.display = "none";
+        }
+      });
+
+      searchInput.addEventListener("input", function () {
+        const searchTerm = searchInput.value.toLowerCase();
+        let found = false;
+
+        categoryList.forEach((category) => {
+          const text = category.textContent.toLowerCase();
+          if (text.includes(searchTerm)) {
+            category.style.display = "block";
+            found = true;
+            category.scrollIntoView({ behavior: "smooth", block: "center" });
+          } else {
+            category.style.display = "none";
+          }
+        });
+
+        if (!found && searchTerm !== "") {
+          searchBar.style.display = "none";
+        }
+      });
+
+      // Course Category List
+      categoryList.forEach((category) => {
+        category.addEventListener("click", function () {
+          this.classList.toggle("open"); // Toggle 'open' class
+        });
+      });
+    </script>
+  </body>
+</html>

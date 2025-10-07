@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #ffffff;
+            }
+            .navbar {
+                background-color: #ffffff;
+                box-shadow: #ffffff;
+                display: flex;
+               
+                align-items: center;
+                
+            }
+              .navbar-brand img {
+                height: 40px;
+                margin-right: 10px;
+            }
+            .navbar a {
+                margin-right: 15px;
+                color: #000000;
+                text-decoration: none;
+                font-weight: 100;
+            }
+            .search-bar {
+                flex-grow: 1;
+                margin: 0 15px;
+            }
+            .search-bar input {
+                width: 100%;
+                padding: 8px 12px;
+                border: 1px solid #ccc;
+                border-radius: 20px;
+                outline: none;
+            }
+
+            
+            
+            .box {
+                border: 1px solid #ccc;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                margin-bottom: 20px;
+            }
+            .course-container, .event-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            .course-box, .event-box {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: center;
+                background-color: #fff;
+                border-radius: 5px;
+            }
+            .course-box img, .event-box img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+            .calendar-table {
+                width: 100%;
+                text-align: center;
+                border-collapse: collapse;
+            }
+            .calendar-table th, .calendar-table td {
+                padding: 10px;
+                border: 1px solid #ddd;
+            }
+            footer {
+        display: flex;
+        justify-content:center;
+        gap: 130px;
+        align-items: center;
+        padding: 0px;
+        background-color: #ffffff;
+        box-shadow:  #ffffff;
+      }
+
+      .footer-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .footer-left img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .footer-left p {
+        max-width: 250px;
+        font-size: 14px;
+        padding-left: 20px;
+        padding-top: 10px;
+      }
+
+      .footer-center {
+        text-align: center;
+        border: #000000;
+      }
+
+      .footer-center h3 {
+        margin-bottom: 10px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .social-icons a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #333;
+      }
+
+      .footer-right {
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        padding-right: 100px;
+      }
+
+      .footer-right a {
+        text-decoration: none;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 15px;
+      }
+
+      .text{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+
+
+     
+        </style>
+    </head>
+    
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="./1.jpeg" alt="SCU Logo">
+        </a>
+        <div>
+            <a href="./Home.html">Home</a>
+            <a href="#">Dashboard</a>
+            <a href="./MyCourses.html">My Courses</a>
+        </div>
+        <div>
+            <button class="btn btn-secondary">Edit Mode</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h2 class="text-center my-3">Dashboard</h2>
+    <button class="btn btn-primary mb-3">View Announcement</button>
+  
+    
+
+    <div class="row">
+        <!-- Priority Timeline -->
+        <div class="col-md-6">
+            <div class="box">
+                <h4>Priority Timeline</h4>
+                <input type="text" class="form-control mb-2" placeholder="Search activity">
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Assignment 1 Upload</span>
+                    <button class="btn btn-primary btn-sm">Upload</button>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Assignment 2 Upload</span>
+                    <button class="btn btn-primary btn-sm">Upload</button>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span>Assignment 3 Upload</span>
+                    <button class="btn btn-primary btn-sm">Upload</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar -->
+        <div class="col-md-6">
+            <div class="box">
+                <h4>Calendar</h4>
+                <p>February 2025</p>
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
+                        <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+                        <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+                        <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+                        <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recently Accessed Courses Section -->
+    <div class="box">
+        <h4>Recently Accessed Courses</h4>
+        <div class="course-container">
+            <div class="course-box">
+                <img src="12.webp" alt="Course 1">
+                <p>Introduction to Programming</p>
+            </div>
+            <div class="course-box">
+                <img src="12.webp" alt="Course 2">
+                <p>Web Development Basics</p>
+            </div>
+            <div class="course-box">
+                <img src="12.webp" alt="Course 3">
+                <p>Data Structures & Algorithms</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events Section -->
+    <div class="box">
+        <h4>Upcoming Events</h4>
+        <div class="event-container">
+            <div class="event-box">
+                <img src="12.webp" alt="Event 1">
+                <p>AI & Machine Learning Workshop</p>
+            </div>
+            <div class="event-box">
+                <img src="12.webp" alt="Event 2">
+                <p>Web Development Bootcamp</p>
+            </div>
+            <div class="event-box">
+                <img src="12.webp" alt="Event 3">
+                <p>Data Science Conference</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="line"><hr></div>
+
+     <footer>
+      <div class="footer-left">
+        <img src="./SCU.jpg" alt="SLIIT CITY UNI Logo" />
+        <p>
+          Sri Lanka Institute of Information Technology attracts brilliant minds,
+          advances knowledge, fosters innovation, and educates future leaders in IT.
+        </p>
+      </div>
+      
+      <div class="footer-center">
+        <h5>Follow Us On:</h5>
+        <div class="social-icons">
+          <a href="#"><img src="facebook.jpg" /></a>
+          <a href="#"><img src="X.jpg" /></a>
+          <a href="#"><img src="in.jpg" /></a>
+          <a href="#"><img src="instergrame.jpg" /></a>
+        </div>
+      </div>
+      
+      <div class="footer-right">
+        <a href="#">Home</a>
+        <a href="#">Dashboard</a>
+        <a href="#">My Courses</a>
+      </div>
+    </footer>
+    <div class="footer-bottom">
+      &copy; 2024 All Rights Reserved. SLIIT CITY UNI.
+    </div>
+
+</body>
+</html>

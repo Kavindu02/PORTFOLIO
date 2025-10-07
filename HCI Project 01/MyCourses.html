@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+       header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #ddd;
+      }
+
+      header img {
+        width: 60px;
+        height: 60px;
+      }
+
+      header nav {
+        display: flex;
+        gap: 50px;
+      }
+
+      header nav a {
+        text-decoration: none;
+        color: #000000;
+      }
+
+      .iconn {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .iconn img {
+        width: 24px; 
+        height: 24px;
+      }
+        .user-options input {
+            padding: 5px;
+        }
+        .banner {
+            width: 100%;    
+            height: 550px;
+            background: url("./courses.jpg") no-repeat center center/cover;
+        }
+        .filters {
+            margin: 20px 0;
+        }
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .course {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+        .course img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3b3939;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #hideBtn {
+    padding: 10px 20px;
+    background: #3b3939;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 20px;
+    display: none;
+}
+
+#hideBtn:hover {
+    background: #3b3939;
+}
+
+
+        #showMoreBtn{
+            border-radius: 3px;
+            margin-bottom: 30px;
+        }
+
+        #hideBtn{
+            border-radius: 3px;
+            margin-bottom: 30px;
+        }
+
+
+
+        footer {
+        display: flex;
+        justify-content:center;
+        gap: 130px;
+        align-items: center;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 10px rgb(255, 255, 255);
+      }
+
+      .footer-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .footer-left img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .footer-left p {
+        max-width: 250px;
+        font-size: 14px;
+        padding-left: 20px;
+        padding-top: 10px;
+      }
+
+      .footer-center {
+        text-align: center;
+      }
+
+      .footer-center h3 {
+        margin-bottom: 10px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .social-icons a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #333;
+      }
+
+      .footer-right {
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        padding-right: 100px;
+      }
+
+      .footer-right a {
+        text-decoration: none;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 15px;
+      }
+
+      .text{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+
+      a {
+    text-decoration: none;  
+    color: #000000;  
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="./SCU.jpg" alt="SLIIT CITY UNI Logo" />
+        <nav>
+          <a href="./Home.html">Home</a>
+          <a href="./Dashboard.html">Dashboard</a>
+          <a href="#">My Courses</a>
+        </nav>
+        <div class="iconn">
+          <a href="#"><img src="User.jpg" /></a>
+          <a href="#"><img src="Notification.jpg" /></a>
+          <a href="#"><img src="Search.jpg" /></a>
+        </div>
+        
+      </header>
+    
+    <section class="banner"></section>
+    
+    <main>
+        <h1 class="text">My Courses</h1>
+        <p>Course Overview</p>
+        <div class="filters">
+            <select>
+                <option>ALL</option>
+                <option>In progress</option>
+                <option>Future</option>
+                <option>Past</option>
+            </select>
+            <input type="search" placeholder="Search Course">
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                  const searchInput = document.querySelector("input[type='search']");
+                  const courses = document.querySelectorAll(".course");
+          
+                  searchInput.addEventListener("input", function () {
+                      const searchText = searchInput.value.toLowerCase();
+          
+                      courses.forEach(course => {
+                          const courseName = course.querySelector("p a").textContent.toLowerCase();
+                          if (courseName.includes(searchText)) {
+                              course.style.display = "block";
+                          } else {
+                              course.style.display = "none";
+                          }
+                      });
+                  });
+              });
+          </script>
+          
+            <select>
+                <option>Sort By Course Name</option>
+                <option>Sort By Last accessed</option>
+            </select>
+        </div>
+        
+        <div class="courses">
+            <div class="course"><img src="DCCN.jpg" alt="Course 1"><p><a href="#">Data Communication and Computer Networks - II - Oct Intake 2023</a></p></div>
+            <div class="course"><img src="./HCI.jpg" alt="Course 2"><p><a href="./CourseModule.html">Human Computer Interaction - 2023 October Intake</a></p></div>
+            <div class="course"><img src="DSA.jpg" alt="Course 3"><p><a href="#">Data Structures and Algorithms - 2023 October Intake</a></p></div>
+            <div class="course hidden"><img src="./PS.jpg" alt="Course 4"><p><a href="#">Probability and Statistics - 2023 October Intake</a></p></div>
+            <div class="course hidden"><img src="./OS.jpg" alt="Course 5"><p><a href="#">Operating Systems - 2023 October Intake</a></p></div>
+            <div class="course hidden"><img src="./Digital Library.jpg" alt="Course 6"><p><a href="#">Digital Library</a></p></div>
+        </div>
+
+        <button id="showMoreBtn">Show More</button>
+<button id="hideBtn" style="display: none;">Hide</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const showMoreBtn = document.getElementById("showMoreBtn");
+      const hideBtn = document.getElementById("hideBtn");
+      const hiddenCourses = document.querySelectorAll(".course.hidden");
+
+      showMoreBtn.addEventListener("click", function () {
+          hiddenCourses.forEach(course => course.classList.remove("hidden"));
+          showMoreBtn.style.display = "none"; 
+          hideBtn.style.display = "inline-block"; 
+      });
+
+      hideBtn.addEventListener("click", function () {
+          hiddenCourses.forEach(course => course.classList.add("hidden"));
+          showMoreBtn.style.display = "inline-block"; 
+          hideBtn.style.display = "none"; 
+      });
+  });
+</script>
+
+
+    </main>
+    
+    <div id="line"><hr></div>
+
+     <footer>
+      <div class="footer-left">
+        <img src="SCU.jpg" alt="SLIIT CITY UNI Logo" />
+        <p>
+          Sri Lanka Institute of Information Technology attracts brilliant minds,
+          advances knowledge, fosters innovation, and educates future leaders in IT.
+        </p>
+      </div>
+      
+      <div class="footer-center">
+        <h3>Follow Us On:</h3>
+        <div class="social-icons">
+          <a href="#"><img src="facebook.jpg" /></a>
+          <a href="#"><img src="X.jpg" /></a>
+          <a href="#"><img src="in.jpg" /></a>
+          <a href="#"><img src="instergrame.jpg" /></a>
+        </div>
+      </div>
+      
+      <div class="footer-right">
+        <a href="#">Home</a>
+        <a href="#">Dashboard</a>
+        <a href="#">My Courses</a>
+      </div>
+    </footer>
+    <div class="footer-bottom">
+      &copy; 2024 All Rights Reserved. SLIIT CITY UNI.
+    </div>
+
+    <script>
+        document.getElementById('showMoreBtn').addEventListener('click', function() {
+            let hiddenCourses = document.querySelectorAll('.course.hidden');
+            hiddenCourses.forEach(course => course.classList.remove('hidden'));
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
