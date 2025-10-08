@@ -110,7 +110,7 @@ const animateCircularSkills = () => {
     stroke.style.strokeDashoffset = offset;
 let count = 0;
 const interval = setInterval(() => {
-  if (count >= value) {  // exact value එකටම stop වෙනවා
+  if (count >= value) {  
     info.textContent = value + '%';
     clearInterval(interval);
   } else {
@@ -122,6 +122,31 @@ const interval = setInterval(() => {
   });
   skillsAnimated = true;
 };
+document.querySelectorAll('.skill-circle').forEach(circle => {
+  const progress = circle.querySelector('.progress');
+  const number = circle.querySelector('span');
+  const skillValue = circle.dataset.skill;
+  const radius = 54;
+  const circumference = 2 * Math.PI * radius;
+
+  // animate stroke-dashoffset
+  setTimeout(() => {
+    const offset = circumference - (skillValue / 100) * circumference;
+    progress.style.strokeDashoffset = offset;
+  }, 200);
+
+  // animate number count
+  let current = 0;
+  const interval = setInterval(() => {
+    if (current < skillValue) {
+      current++;
+      number.textContent = current + '%';
+    } else {
+      clearInterval(interval);
+    }
+  }, 15);
+});
+
 
 window.addEventListener('scroll', () => {
   const section = document.querySelector('#skills');
