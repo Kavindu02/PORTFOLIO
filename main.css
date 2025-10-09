@@ -349,6 +349,30 @@ h6 {
   background-color: rgba(33, 37, 41, 0.03);
 }
 
+/* Full navigation/header background black */
+.header {
+  background-color: #000 !important; /* Full header black */
+}
+
+/* Navigation menu itself */
+.navmenu {
+  background-color: #000 !important; /* Nav list area black */
+}
+
+/* Nav links white for visibility */
+.navmenu a,
+.navmenu a:focus {
+  color: #fff !important;
+}
+
+/* Hover/active states */
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus {
+  color: #00bfff !important; /* highlight blue or any color you like */
+}
+
+
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
@@ -546,13 +570,21 @@ section,
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* video එක full cover කරන්න */
+  object-fit: cover;
   z-index: 1;
 }
 
 .hero .container {
   position: relative;
-  z-index: 2; /* text එක video එක ඉස්සරින් පේන්න */
+  z-index: 2;
+}
+/* Hero section name styling */
+#hero h2 {
+  font-size: 55px;      
+  font-weight: 900;      
+  color: #fff;            
+  text-transform: uppercase; 
+  letter-spacing: 2px;    
 }
 
 
