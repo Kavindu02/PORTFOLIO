@@ -1,0 +1,114 @@
+body {
+    font-family:sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+header .logo {
+    font-size: 1.5em;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+
+.left-column {
+    width: 60%;
+}
+
+.left-column img {
+    width: 100%;
+}
+
+.right-column {
+    width: 40%;
+    padding-left: 20px;
+}
+
+.product-description h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 22px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.size-select,
+.color-select {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+.add-to-cart {
+    background-color: #ffcc00;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+#admin-login-section,
+        #admin-section {
+            margin-top: 20px;
+        }
+
+        #admin-login-form input,
+        #admin-login-form button,
+        #admin-section select,
+        #admin-section button {
+            display: block;
+            margin: 10px 0;
+        }
+
+        #admin-login-message,
+        #admin-update-message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+

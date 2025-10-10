@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="User Login Page css.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <div id="error-message" style="color: red;"></div>
+        <form id="loginForm" method="post">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <br>
+            <button type="submit">Login</button>
+            <br><br>
+            <p>Don't have an account? <a href="User Sign up page.html">Sign Up</a></p>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#loginForm').submit(function(event){
+                event.preventDefault();
+
+                $.ajax({
+                    url: 'loginPagePhp.php', 
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        if (response === 'success') {
+                            
+                            var username = $('#username').val();
+                            localStorage.setItem('username', username);
+
+                            alert('Logged in successfully!');
+                            window.location.href = 'profile.html'; 
+                        } else {
+                            $('#error-message').text(response); 
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

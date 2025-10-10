@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="product details 06css.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail Page</title>
+    
+</head>
+<body>
+	<header>
+        <div class="logo">URBAN VOGUE</div>
+        <nav>
+            <ul>
+                <li><a href="../Home Page.html">Home</a></li>
+				<li><a href="../product page.html">Products</a></li>
+                <li><a href="../About.html">About</a></li>
+                <li><a href="../Privacy Policy.html">privacy policy</a></li>
+				<li><a href="../Terms and Condition.html">Terms & Condition</a></li>
+				<li><a href="../User Login page.html">Sign in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<div class="container">
+    <div class="left-column">
+        <img src="krr6.jpg" alt="3D Collar Print Polo" width="300px" height="600px">
+        
+    </div>
+    <div class="right-column">
+        <div class="product-title">URBAN VOGUE | 3D Collar Print Polo</div>
+		<br>
+        <div class="product-price">LKR 3990.00</div>
+		<br>
+        <div class="product-description">
+           Upgrade your wardrobe with the URBAN VOGUE |  3D Collar Print Polo. This stylish long-sleeve shirt features a smart fit and a sleek black oxidized URBAN VOGUE steel badge. Available in 5 trendy colors for a modern and polished look. Look and feel your best with this must-have shirt.
+        </div>
+		<br>
+        <div class="size-select">
+            <label for="size">Size</label>
+            <select id="size">
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+        </div>
+		<br>
+        <div class="color-select">
+            <label for="color">Color</label>
+            <select id="color">
+                <option value="brown">Brown</option>
+                <option value="charcoal">Charcoal</option>
+                <option value="white">White</option>
+                <option value="olive-green">Olive Green</option>
+                <option value="navy">Navy</option>
+            </select>
+			<br>
+			<br>
+			<div id="stock-status">
+                Stock Status: <span id="stock-indicator">In Stock</span>
+            </div>
+        </div>
+		<br>
+        <button class="add-to-cart">Add to Cart</button>
+        
+    </div>
+</div>
+	<div id="admin-login-section">
+        <h3>Admin Login</h3>
+        <form id="admin-login-form" onsubmit="return adminLogin()">
+            <input type="text" id="admin-username" name="admin-username" placeholder="Username" required>
+            <input type="password" id="admin-password" name="admin-password" placeholder="Password" required>
+            <button type="submit">Login as Admin</button>
+        </form>
+        <div id="admin-login-message" style="color: red;"></div>
+    </div>
+
+  
+    <div id="admin-section" style="display: none;">
+        <h3>Manage Stock</h3>
+        <label for="stock-status-select">Stock Status:</label>
+        <select id="stock-status-select">
+            <option value="In Stock">In Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
+        </select>
+        <button id="update-stock" onclick="updateStock()">Update Stock</button>
+        <div id="admin-update-message" style="color: green;"></div>
+    </div>
+<script>
+        function adminLogin() {
+            var username = document.getElementById('admin-username').value;
+            var password = document.getElementById('admin-password').value;
+
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('admin-login-section').style.display = 'none';
+                document.getElementById('admin-section').style.display = 'block';
+            } else {
+                document.getElementById('admin-login-message').textContent = 'Invalid username or password';
+            }
+
+            return false; 
+        }
+
+        function updateStock() {
+            var newStockStatus = document.getElementById('stock-status-select').value;
+            var stockIndicator = document.getElementById('stock-indicator');
+            
+            if (stockIndicator) {
+                stockIndicator.textContent = newStockStatus;
+                document.getElementById('admin-update-message').textContent = 'Stock updated to: ' + newStockStatus;
+            } else {
+                document.getElementById('admin-update-message').textContent = 'Error: Stock status indicator not found.';
+            }
+        }
+    </script>
+<script>
+    function addToCart() {
+        
+        const productName = "3D Collar Print Polo";
+        const productPrice = 3990.00;
+        const productSize = document.getElementById('size').value;
+        const productColor = document.getElementById('color').value;
+        const productQuantity = 1;
+
+     
+        const product = {
+            name: productName,
+            price: productPrice,
+            size: productSize,
+            color: productColor,
+            quantity: productQuantity
+        };
+
+        
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+       
+        cart.push(product);
+
+       
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert("Product added to cart!");
+    }
+
+   
+    document.querySelector('.add-to-cart').addEventListener('click', addToCart);
+</script>
+</body>
+</html>
+

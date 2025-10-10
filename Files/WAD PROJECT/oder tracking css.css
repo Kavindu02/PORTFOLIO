@@ -1,0 +1,67 @@
+
+body {
+    font-family:sans-serif;
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.tracking-container {
+    background-color: lightsteelblue;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px rgba(0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.tracking-form {
+    margin-bottom: 20px;
+}
+
+.tracking-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.tracking-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.tracking-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tracking-form button:hover {
+    background-color: black;
+}
+
+.order-status {
+    display: none;
+}
+
+.order-status h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#status-details {
+    text-align: left;
+}
+

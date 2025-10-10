@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile css.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+	<main>
+        <div class="container">
+            <h1 align="center">User Profile</h1>
+            <div class="profile-content">
+                <div class="profile-info">
+                    <h2>Personal Information</h2>
+                    <p><strong>Name:</strong> <span id="fullname"></span></p>
+                    <p><strong>Email:</strong> <span id="email"></span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+	
+	<script>
+        $(document).ready(function() {
+            var username = localStorage.getItem('username');
+            
+            if (username) {
+                $('#fullname').text(username); 
+                $('#email').text(username + '@gmail.com'); 
+            } else {
+                alert('You are not logged in.');
+                window.location.href = 'User Login page.html';
+            }
+			
+            $('#signOut').click(function() {
+                localStorage.removeItem('username');
+                window.location.href = 'User Login page.html';
+            });
+        });
+    </script>
+</body>
+</html>
