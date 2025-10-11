@@ -1175,7 +1175,6 @@ section,
   display: none;
 }
 
-
 /* ===== FORM CONTAINER ===== */
 .contact .php-email-form.modern-form {
   background: rgba(255, 255, 255, 0.05);
@@ -1303,4 +1302,46 @@ section,
   margin-bottom: 10px;
 }
 
+/* Contact info boxes */
+.contact-info .info-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
+.contact-info .info-box i {
+  font-size: 28px;
+  color: #1da1f2;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.contact-info .info-box h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.contact-info .info-box p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Hover effect */
+.contact-info .info-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(29, 161, 242, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-info .info-box {
+    margin-bottom: 15px;
+  }
+}
