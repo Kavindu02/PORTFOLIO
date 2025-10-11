@@ -122,6 +122,8 @@ const interval = setInterval(() => {
   });
   skillsAnimated = true;
 };
+
+
 document.querySelectorAll('.skill-circle').forEach(circle => {
   const progress = circle.querySelector('.progress');
   const number = circle.querySelector('span');
