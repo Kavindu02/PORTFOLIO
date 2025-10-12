@@ -693,7 +693,7 @@ section,
 
   #hero .hero-side-img .image-circle {
     width: 280px;
-    height: 280px;
+    height: 308px;
   }
 
   #hero .hero-text .hero-title {
@@ -744,7 +744,6 @@ section,
 /* ---------------------------------------------------
 # Education Section
 --------------------------------------------------- */
-
 .education {
   background-color: #000; /* dark theme */
   color: #fff;
@@ -782,7 +781,9 @@ section,
   border-radius: 12px;
   position: relative;
   border-left: 4px solid #149DDD;
+  border-right: 4px solid #149DDD;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden; /* to keep glow inside */
 }
 
 .education-item:hover {
@@ -790,6 +791,7 @@ section,
   box-shadow: 0 10px 20px rgba(20, 157, 221, 0.4);
 }
 
+/* Title, time, description */
 .education-item h3 {
   font-size: 22px;
   margin-bottom: 5px;
@@ -807,6 +809,24 @@ section,
   font-size: 16px;
   line-height: 1.6;
   color: #ccc;
+}
+
+/* ===== MOVING GLOW UNDER EACH EDUCATION ITEM ===== */
+.education-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #149DDD, transparent);
+  animation: slideGlow 5s infinite linear;
+}
+
+@keyframes slideGlow {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
 }
 
 /* Responsive */
@@ -1030,7 +1050,35 @@ section,
   background: #111;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  border-left: 4px solid #149DDD;
+  border-right: 4px solid #149DDD;
 }
+/* ===== HOVER-ACTIVE BLUE GLOW UNDER PROJECT CARD ===== */
+.projects-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #149DDD, transparent);
+  animation: slideGlow 5s infinite linear;
+  opacity: 0; /* start hidden */
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.projects-item:hover::after {
+  opacity: 1; /* show glow on hover */
+}
+
+/* Keyframes (reuse) */
+@keyframes slideGlow {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
+}
+
 
 .projects-item:hover {
   transform: translateY(-10px);
@@ -1158,7 +1206,6 @@ section,
   .project-links .btn { padding: 6px 15px; font-size: 14px; }
 }
 
-
 /* ===== CONTACT SECTION ===== */
 .contact {
   background: black;
@@ -1171,6 +1218,7 @@ section,
   overflow: hidden;
   color: #fff;
 }
+
 .section-title h2::after {
   display: none;
 }
@@ -1183,6 +1231,8 @@ section,
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #149DDD; /* ✅ Added left blue border */
+  border-right: 4px solid #149DDD;
   position: relative;
   overflow: hidden;
 
@@ -1278,12 +1328,6 @@ section,
   animation: slideGlow 5s infinite linear;
 }
 
-@keyframes slideGlow {
-  0% { left: -100%; }
-  50% { left: 100%; }
-  100% { left: -100%; }
-}
-
 /* ===== MESSAGES ===== */
 .sent-message {
   display: none;
@@ -1292,17 +1336,19 @@ section,
   margin-bottom: 10px;
   transition: all 0.5s ease;
 }
+
 .loading {
   display: none;
   color: #fff;
   margin-bottom: 10px;
 }
+
 .error-message {
   color: #ff4d4d;
   margin-bottom: 10px;
 }
 
-/* Contact info boxes */
+/* ===== CONTACT INFO BOXES ===== */
 .contact-info .info-box {
   background: rgba(255, 255, 255, 0.05);
   padding: 25px 20px;
@@ -1312,8 +1358,13 @@ section,
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #149DDD; /* ✅ Added same left blue border */
+  border-right: 4px solid #149DDD;
+  position: relative;
+  overflow: hidden; /* keep glow inside */
 }
 
+/* Icon */
 .contact-info .info-box i {
   font-size: 28px;
   color: #1da1f2;
@@ -1321,12 +1372,14 @@ section,
   display: block;
 }
 
+/* Title */
 .contact-info .info-box h4 {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
+/* Paragraph */
 .contact-info .info-box p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
@@ -1337,6 +1390,25 @@ section,
 .contact-info .info-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(29, 161, 242, 0.3);
+}
+
+/* ===== MOVING BLUE GLOW UNDER INFO BOX ===== */
+.contact-info .info-box::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1da1f2, transparent);
+  animation: slideGlow 5s infinite linear;
+}
+
+/* ===== GLOW ANIMATION (shared) ===== */
+@keyframes slideGlow {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
 }
 
 /* Responsive adjustments */
