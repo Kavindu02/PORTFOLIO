@@ -857,6 +857,23 @@ section,
   }
 }
 
+.education .edu-btn {
+  background-color: #149DDD;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.education .edu-btn:hover {
+  background-color: rgba(20, 157, 221, 0.85);
+}
+
+
 /*--------------------------------------------------------------
 # Skills Section
 --------------------------------------------------------------*/
