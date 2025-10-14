@@ -247,3 +247,25 @@ window.addEventListener('scroll', () => {
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+const openCerts = document.getElementById('openCerts');
+const certPopup = document.getElementById('certPopup');
+const closeCerts = document.getElementById('closeCerts');
+
+openCerts.addEventListener('click', (e)=>{
+    e.preventDefault();
+    certPopup.classList.add('show');
+});
+
+closeCerts.addEventListener('click', ()=>{
+    certPopup.classList.remove('show');
+});
+
+// Close popup if clicked outside
+window.addEventListener('click', (e)=>{
+    if(e.target === certPopup){
+        certPopup.classList.remove('show');
+    }
+});
+
+

@@ -584,7 +584,7 @@ section,
 }
 
 #hero .hero-text .hero-title {
-  font-size: 64px;
+  font-size: 60px;
   font-weight: 700;
   margin-bottom: 20px;
   animation: fadeSlideDown 1.5s ease forwards;
@@ -872,7 +872,6 @@ section,
 .education .edu-btn:hover {
   background-color: rgba(20, 157, 221, 0.85);
 }
-
 
 /*--------------------------------------------------------------
 # Skills Section
@@ -1477,4 +1476,90 @@ section,
     margin-bottom: 15px;
   }
 }
+
+/* ===== Certificates List Modal ===== */
+/* Certificates Popup */
+.cert-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: rgba(20,20,20,0.95);
+  color: #fff;
+  width: 350px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.cert-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.cert-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-weight: 600;
+  color: #00bfff;
+}
+
+.cert-popup-close {
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.cert-popup-close:hover {
+  color: #00ffff;
+}
+
+.cert-popup-body {
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 15px 15px 15px;
+}
+
+.cert-popup-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cert-popup-body::-webkit-scrollbar-thumb {
+  background: rgba(0,191,255,0.5);
+  border-radius: 3px;
+}
+
+.cert-popup-item {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.cert-popup-item:hover {
+  background: rgba(0,191,255,0.2);
+  color: #00bfff;
+  transform: translateY(-1px);
+}
+
+@media(max-width:500px){
+  .cert-popup {
+    width: 90%;
+  }
+}
+
 
