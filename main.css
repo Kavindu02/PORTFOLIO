@@ -873,175 +873,142 @@ section,
   background-color: rgba(20, 157, 221, 0.85);
 }
 
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-
-.skills {
-  background-color: #000; /* dark background */
-  padding: 80px 20px;
-  color: #fff; /* force white text for section */
+/* ---------------------------------------------------
+# Shared Glow Animation (Used by Skills & Education)
+--------------------------------------------------- */
+@keyframes neonGlowLine {
+  0% { left: -120%; }
+  50% { left: 100%; }
+  100% { left: -120%; }
 }
 
-/* Section Title */
-.skills .section-title h2 {
-  color: #fff; /* white title */
-  font-size: 36px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.skills .section-title p {
-  color: #ccc; /* subtitle color */
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 50px auto;
-  line-height: 1.6;
-}
-
-/* Skills Circles Container */
-.skills-circles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-}
-
-/* Single Skill Circle */
-.skill-circle {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  transition: transform 0.4s ease;
-}
-
-.skill-circle:hover {
-  transform: scale(1.1);
-}
-
-/* SVG Circle */
-.skill-circle svg {
-  width: 120px;
-  height: 120px;
-  transform: rotate(-90deg);
-}
-
-.skill-circle svg circle.bg {
-  stroke: rgba(255,255,255,0.1);
-  fill: none;
-  stroke-width: 12;
-  stroke-linecap: round;
-}
-
-.skill-circle svg circle.progress {
-  stroke: #149DDD; /* accent color */
-  fill: none;
-  stroke-width: 12;
-  stroke-linecap: round;
-  stroke-dasharray: 339.292;
-  stroke-dashoffset: 339.292;
-  transition: stroke-dashoffset 1.5s ease-in-out;
-}
-
-/* Skill Info */
-.skill-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.skill-info h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 4px;
-  color: #fff; /* white skill titles */
-}
-
-.skill-info span {
-  font-size: 18px;
-  font-weight: 700;
-  color: #149DDD; /* accent color */
-  display: block;
-  line-height: 1;
-  animation: glow 1.5s infinite alternate;
-}
-
-/* Glow Animation */
-@keyframes glow {
-  0% { text-shadow: 0 0 5px #149DDD, 0 0 10px #149DDD; }
-  100% { text-shadow: 0 0 10px #149DDD, 0 0 20px #149DDD; }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .skills-circles {
-    gap: 30px;
-  }
-  .skill-circle {
-    width: 100px;
-    height: 100px;
-  }
-  .skill-circle svg {
-    width: 100px;
-    height: 100px;
-  }
-}
-.skills-circles {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.skill-circle {
-  position: relative;
-  width: 120px;
-  height: 120px;
-}
-
-.skill-circle svg {
-  width: 120px;
-  height: 120px;
-  transform: rotate(-90deg);
-}
-
-.skill-circle circle.bg {
-  fill: none;
-  stroke: rgba(255,255,255,0.1);
-  stroke-width: 12;
-}
-
-.skill-circle circle.progress {
-  fill: none;
-  stroke: #149DDD;
-  stroke-width: 12;
-  stroke-linecap: round;
-  stroke-dasharray: 339.292; /* 2*π*r */
-  stroke-dashoffset: 339.292;
-  transition: stroke-dashoffset 1.5s ease;
-}
-
-.skill-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+/* ---------------------------
+   Skills Section - With Glow
+----------------------------*/
+#skills {
+  padding: 70px 0;
+  background: #000;
   color: #fff;
+  position: relative;
 }
 
-.skill-info h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.skill-info span {
-  font-size: 18px;
-  color: #149DDD;
+#skills .section-title h2 {
+  color: #fff;
+  font-size: 34px;
+  margin-bottom: 8px;
+  text-align: center;
   font-weight: 700;
 }
+
+#skills .section-title p {
+  color: #bfbfbf;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+  line-height: 1.5;
+}
+
+/* Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+/* Skill Card */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 18px 15px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s ease;
+
+  /* ✅ Add Left & Right Blue Lines */
+  border-left: 3px solid #149DDD;
+  border-right: 3px solid #149DDD;
+}
+
+/* Hover */
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 14px rgba(21, 163, 255, 0.6);
+  border-color: rgba(21, 163, 255, 0.7);
+}
+
+/* ===== Glow Lines Back & Forth ===== */
+.skill-card::before,
+.skill-card::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #149DDD, transparent);
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  animation: glowMove 4s infinite ease-in-out;
+}
+
+/* Top Line */
+.skill-card::before {
+  top: 0;
+  left: -100%;
+}
+
+/* Bottom Line */
+.skill-card::after {
+  bottom: 0;
+  left: -100%;
+  animation-delay: 0.3s; /* small delay for nicer effect */
+}
+
+/* Hover Boost */
+.skill-card:hover::before,
+.skill-card:hover::after {
+  opacity: 1;
+  animation-duration: 2.5s;
+}
+
+/* Back & Forth Animation */
+@keyframes glowMove {
+  0%   { left: -100%; }
+  50%  { left: 100%; }
+  100% { left: -100%; }
+}
+
+
+
+/* Skill Card Icons & Text */
+.skill-card i {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #149DDD;
+}
+
+.skill-card h3 {
+  color: #fff;
+  font-size: 15px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .skill-card {
+    padding: 15px;
+  }
+  #skills .section-title h2 {
+    font-size: 28px;
+  }
+}
+
+
+
 
 /* Projects Section */
 #projects {
@@ -1474,91 +1441,6 @@ section,
 @media (max-width: 768px) {
   .contact-info .info-box {
     margin-bottom: 15px;
-  }
-}
-
-/* ===== Certificates List Modal ===== */
-/* Certificates Popup */
-.cert-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.95);
-  background: rgba(20,20,20,0.95);
-  color: #fff;
-  width: 350px;
-  max-width: 90%;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 9999;
-}
-
-.cert-popup.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.cert-popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  font-weight: 600;
-  color: #00bfff;
-}
-
-.cert-popup-close {
-  cursor: pointer;
-  font-size: 20px;
-  transition: 0.3s ease;
-}
-
-.cert-popup-close:hover {
-  color: #00ffff;
-}
-
-.cert-popup-body {
-  max-height: 300px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 10px 15px 15px 15px;
-}
-
-.cert-popup-body::-webkit-scrollbar {
-  width: 6px;
-}
-
-.cert-popup-body::-webkit-scrollbar-thumb {
-  background: rgba(0,191,255,0.5);
-  border-radius: 3px;
-}
-
-.cert-popup-item {
-  padding: 8px 10px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.cert-popup-item:hover {
-  background: rgba(0,191,255,0.2);
-  color: #00bfff;
-  transform: translateY(-1px);
-}
-
-@media(max-width:500px){
-  .cert-popup {
-    width: 90%;
   }
 }
 
