@@ -376,8 +376,13 @@
 
   <!-- Footer -->
   <footer id="footer" class="footer light-background text-center py-3">
-    <p>© 2025 <strong>Kavindu Rathnayaka</strong> | All Rights Reserved.</p>
-  </footer>
+  <p>© <span id="year"></span> <strong>Kavindu Rathnayaka</strong> | All Rights Reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
