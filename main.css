@@ -1444,4 +1444,41 @@ section,
   }
 }
 
+/* ===== MESSAGE STATUS STYLES (Blue Theme – Matches Contact Section) ===== */
+
+.form-alert {
+  margin-top: 12px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  display: none;
+  opacity: 1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-align: center;
+  background: rgba(20, 157, 221, 0.10);
+  color: #cfefff;
+  border-left: 3px solid #149ddd;
+  border-right: 3px solid #149ddd;
+  box-shadow: 0 0 12px rgba(20, 157, 221, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+/* Success */
+.form-alert.success {
+  background: rgba(0, 255, 255, 0.12);
+  border-left: 3px solid #00eaff;
+  border-right: 3px solid #00eaff;
+  color: #00eaff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.40);
+}
+
+/* Error */
+.form-alert.error {
+  background: rgba(255, 77, 77, 0.12);
+  border-left: 3px solid #ff4d4d;
+  border-right: 3px solid #ff4d4d;
+  color: #ff6b6b;
+  box-shadow: 0 0 15px rgba(255, 77, 77, 0.35);
+}
+
 

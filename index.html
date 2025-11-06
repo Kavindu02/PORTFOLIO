@@ -314,15 +314,21 @@
 
  <section id="contact" class="contact section dark-background">
   <div class="container">
-    <!-- Section Title -->
+
     <div class="section-title text-center" data-aos="fade-up">
       <h2>Contact</h2>
-      <p>I’d love to Hear from You—Reach Out for Any Opportunities or Questions !</p>
+      <p>I’d love to Hear from You — Reach Out for Any Opportunities or Questions!</p>
     </div>
 
     <div class="row justify-content-center mt-3">
       <div class="col-lg-7">
+
         <form id="contactForm" class="php-email-form modern-form" data-aos="fade-up" data-aos-delay="200">
+
+          <!-- Web3Forms Hidden Fields -->
+          <input type="hidden" name="access_key" value="e5c3656b-d026-4eca-896a-e16bd2758f8a">
+          <input type="hidden" name="from_name" value="Portfolio Website">
+
           <div class="row gy-4">
             <div class="col-md-6">
               <input type="text" name="name" placeholder="Your Name" required>
@@ -336,12 +342,15 @@
             <div class="col-md-12">
               <textarea name="message" rows="6" placeholder="Message" required></textarea>
             </div>
-            <div class="col-md-12 text-center">
-              <div class="loading" style="display:none;">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-              <button type="submit">Send Message</button>
-            </div>
+
+          <!-- Message Alerts (Outside Form Box) -->
+<div class="form-alert text-center"></div>
+
+<div class="col-md-12 text-center">
+  <button type="submit" class="send-btn">Send Message</button>
+</div>
+
+
           </div>
         </form>
       </div>
@@ -372,6 +381,48 @@
 </div>
 </div>
 </section>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const alertBox = document.querySelector(".form-alert");
+  alertBox.style.display = "block";
+  alertBox.className = "form-alert";
+  alertBox.innerHTML = "⏳ Sending your message...";
+
+  const formData = new FormData(this);
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    if (response.ok) {
+      alertBox.classList.add("success");
+      alertBox.innerHTML = "Message Sent Successfully !";
+      this.reset();
+
+      setTimeout(() => {
+        alertBox.style.display = "none";
+      }, 3500);
+    } else {
+      throw new Error();
+    }
+
+  } catch (error) {
+    alertBox.classList.add("error");
+    alertBox.innerHTML = "Please try again.";
+
+    setTimeout(() => {
+      alertBox.style.display = "none";
+    }, 3500);
+  }
+});
+</script>
+
+
 
   <!-- Footer -->
   <footer id="footer" class="footer light-background text-center py-3">
