@@ -946,8 +946,9 @@ section,
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
-  width: 90%;
+  width: 70%;
   margin: auto;
+  margin-bottom: 38px;
 }
 
 /* Skill Card */
