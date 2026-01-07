@@ -802,19 +802,19 @@ section,
 .education-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  max-width: 420px;
-  margin: 0 auto 18px auto;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Single Education Item */
 .education-item {
   background-color: #111;
-  padding: 14px 12px;
-  border-radius: 10px;
+  padding: 25px 30px;
+  border-radius: 12px;
   position: relative;
-  border-left: 3px solid #149DDD;
-  border-right: 3px solid #149DDD;
+  border-left: 4px solid #149DDD;
+  border-right: 4px solid #149DDD;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   overflow: hidden; /* to keep glow inside */
 }
@@ -826,23 +826,22 @@ section,
 
 /* Title, time, description */
 .education-item h3 {
-  font-size: 18px;
-  margin-bottom: 3px;
+  font-size: 22px;
+  margin-bottom: 5px;
   color: #fff;
 }
 
 .education-item .edu-time {
-  font-size: 12px;
+  font-size: 14px;
   color: #149DDD;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .education-item p {
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.6;
   color: #ccc;
-  margin-bottom: 6px;
 }
 
 /* ===== MOVING GLOW ABOVE AND BELOW EDUCATION ITEM ===== */
@@ -878,26 +877,16 @@ section,
 
 /* Responsive */
 @media (max-width: 768px) {
-  .education-list {
-    gap: 10px;
-    max-width: 98vw;
-    padding: 0 2vw;
-  }
   .education-item {
-    padding: 10px 4px;
-    border-radius: 8px;
+    padding: 20px;
   }
+
   .education-item h3 {
-    font-size: 15px;
-    margin-bottom: 2px;
+    font-size: 20px;
   }
-  .education-item .edu-time {
-    font-size: 10px;
-    margin-bottom: 3px;
-  }
+
   .education-item p {
-    font-size: 11px;
-    margin-bottom: 4px;
+    font-size: 15px;
   }
 }
 
