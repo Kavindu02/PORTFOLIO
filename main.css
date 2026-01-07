@@ -802,19 +802,19 @@ section,
 .education-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto;
+  gap: 18px;
+  max-width: 420px;
+  margin: 0 auto 18px auto;
 }
 
 /* Single Education Item */
 .education-item {
   background-color: #111;
-  padding: 25px 30px;
-  border-radius: 12px;
+  padding: 14px 12px;
+  border-radius: 10px;
   position: relative;
-  border-left: 4px solid #149DDD;
-  border-right: 4px solid #149DDD;
+  border-left: 3px solid #149DDD;
+  border-right: 3px solid #149DDD;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   overflow: hidden; /* to keep glow inside */
 }
@@ -826,22 +826,23 @@ section,
 
 /* Title, time, description */
 .education-item h3 {
-  font-size: 22px;
-  margin-bottom: 5px;
+  font-size: 18px;
+  margin-bottom: 3px;
   color: #fff;
 }
 
 .education-item .edu-time {
-  font-size: 14px;
+  font-size: 12px;
   color: #149DDD;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .education-item p {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.5;
   color: #ccc;
+  margin-bottom: 6px;
 }
 
 /* ===== MOVING GLOW ABOVE AND BELOW EDUCATION ITEM ===== */
@@ -877,16 +878,26 @@ section,
 
 /* Responsive */
 @media (max-width: 768px) {
+  .education-list {
+    gap: 10px;
+    max-width: 98vw;
+    padding: 0 2vw;
+  }
   .education-item {
-    padding: 20px;
+    padding: 10px 4px;
+    border-radius: 8px;
   }
-
   .education-item h3 {
-    font-size: 20px;
-  }
-
-  .education-item p {
     font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .education-item .edu-time {
+    font-size: 10px;
+    margin-bottom: 3px;
+  }
+  .education-item p {
+    font-size: 11px;
+    margin-bottom: 4px;
   }
 }
 
@@ -941,103 +952,128 @@ section,
   line-height: 1.5;
 }
 
-/* Grid */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  width: 70%;
-  margin: auto;
-  margin-bottom: 38px;
-}
 
-/* Skill Card */
+/* Skills Section Responsive Grouping */
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto 38px auto;
+  width: 100%;
+}
+.skills-row {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.skills-category {
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  padding: 24px 18px 18px 18px;
+  box-shadow: 0 2px 12px 0 rgba(17,182,249,0.08);
+  min-width: 260px;
+  flex: 1 1 320px;
+  max-width: 420px;
+  border: 2px solid #149DDD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+}
+.skills-category-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 1px;
+  justify-content: center;
+}
+.skills-category .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin: 0 auto;
+}
 .skill-card {
   position: relative;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 18px 15px;
+  padding: 18px 10px;
   border-radius: 12px;
   text-align: center;
   transition: 0.3s ease;
-
-  /* ✅ Add Left & Right Blue Lines */
   border-left: 3px solid #149DDD;
   border-right: 3px solid #149DDD;
+  margin-bottom: 0;
 }
-
-/* Hover */
-.skill-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 14px rgba(21, 163, 255, 0.6);
-  border-color: rgba(21, 163, 255, 0.7);
-}
-
-/* ===== Glow Lines Back & Forth ===== */
-.skill-card::before,
-.skill-card::after {
-  content: "";
-  position: absolute;
-  width: 120%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #149DDD, transparent);
-  pointer-events: none;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-  animation: glowMove 4s infinite ease-in-out;
-}
-
-/* Top Line */
-.skill-card::before {
-  top: 0;
-  left: -100%;
-}
-
-/* Bottom Line */
-.skill-card::after {
-  bottom: 0;
-  left: -100%;
-  animation-delay: 0.3s; /* small delay for nicer effect */
-}
-
-/* Hover Boost */
-.skill-card:hover::before,
-.skill-card:hover::after {
-  opacity: 1;
-  animation-duration: 2.5s;
-}
-
-/* Back & Forth Animation */
-@keyframes glowMove {
-  0%   { left: -100%; }
-  50%  { left: 100%; }
-  100% { left: -100%; }
-}
-
-
-
-/* Skill Card Icons & Text */
 .skill-card i {
   font-size: 32px;
   margin-bottom: 8px;
   color: #149DDD;
 }
-
 .skill-card h3 {
   color: #fff;
   font-size: 15px;
   margin-top: 5px;
   font-weight: 600;
 }
-
-@media (max-width: 600px) {
-  .skill-card {
-    padding: 15px;
+@media (max-width: 1200px) {
+  .skills-categories {
+    max-width: 100%;
+    padding: 0 12px;
   }
-  #skills .section-title h2 {
-    font-size: 28px;
+  .skills-row {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+    width: 100%;
+  }
+  .skills-category {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 900px) {
+  .skills-categories {
+    gap: 24px;
+    padding: 0 6px;
+  }
+  .skills-row {
+    gap: 18px;
+  }
+}
+@media (max-width: 600px) {
+  .skills-categories {
+    padding: 0 2px;
+  }
+  .skills-category {
+    padding: 16px 4px 12px 4px;
+  }
+  .skills-category-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .skills-category .skills-grid {
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  }
+  .skill-card {
+    padding: 10px 2px;
+  }
+  .skill-card i {
+    font-size: 24px;
+  }
+  .skill-card h3 {
+    font-size: 13px;
   }
 }
 
